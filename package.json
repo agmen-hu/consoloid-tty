@@ -1,0 +1,35 @@
+{
+  "name": "consoloid-tty",
+  "version": "0.1.0",
+  "dependencies": {
+    "pty.js": "*",
+    "term.js": "*",
+    "waitpid": "*",
+    "consoloid-framework": "*",
+    "consoloid-os": "*"
+  },
+  "description": "Terminal widget and pty for Consoloid",
+  "homepage": "https://github.com/agmen-hu/consoloid-tty",
+  "license": "MIT",
+  "author": {
+    "name": "dev.agmen.hu Ltd.",
+    "email": "support@agmen.hu",
+    "url": "https://agmen.hu"
+  },
+  "contributors": [
+    {
+      "name": "Szilard Novaki",
+      "email": "novaki@agmen.hu"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/agmen-hu/consoloid-tty/issues"
+  },
+  "repository" : {
+    "type" : "git",
+    "url" : "git://github.com/agmen-hu/consoloid-tty"
+  },
+  "scripts": {
+    "test": "./test"
+  }
+}
