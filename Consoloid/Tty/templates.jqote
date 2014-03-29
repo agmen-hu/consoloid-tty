@@ -3,3 +3,9 @@
   <div />
 ]]>
 </script>
+
+<script id="Consoloid-Tty-CommandDialog" type="text/x-jqote-template">
+<![CDATA[
+  <div class="terminal" />
+]]>
+</script>

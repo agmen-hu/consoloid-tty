@@ -1,3 +1,7 @@
 .terminal-cursor {
   border-left: 2px solid white;
 }
+
+.response .terminal {
+  border: 2px solid #ccc;
+}

@@ -6,6 +6,7 @@
     "term.js": "*",
     "waitpid": "*",
     "consoloid-framework": "*",
+    "consoloid-console": "*",
     "consoloid-os": "*"
   },
   "description": "Terminal widget and pty for Consoloid",
