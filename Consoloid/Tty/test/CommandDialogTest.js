@@ -71,6 +71,7 @@ describeUnitTest('Consoloid.Tty.CommandDialog', function() {
         terminal: terminal
       });
 
+      env.addServiceMock('css_loader', { load: sinon.spy() });
       env.addServiceMock('console', {
         animateMarginTopIfNecessary: sinon.spy(),
         getVisibleDialogsHeight: sinon.spy()
