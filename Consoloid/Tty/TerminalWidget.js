@@ -6,8 +6,6 @@ defineClass('Consoloid.Tty.TerminalWidget', 'Consoloid.Widget.Widget',
         templateId: 'Consoloid-Tty-TerminalWidget'
       }, options));
 
-      this.requireProperty('pty');
-
       this.__loadTermJs();
       this.__createEmulator();
       this.__createUniqueId();
@@ -45,8 +43,23 @@ defineClass('Consoloid.Tty.TerminalWidget', 'Consoloid.Widget.Widget',
       return this.terminalId;
     },
 
+    setPty: function()
+    {
+      this.pty = pty;
+      return this;
+    },
+
+    getPty: function()
+    {
+      return this.pty;
+    },
+
     render: function()
     {
+      if (!('pty' in this)) {
+        throw new Error('pty must be set before rendering widget');
+      }
+
       this.get('css_loader')
         .load('Consoloid-Tty-base');
 
@@ -68,7 +81,7 @@ defineClass('Consoloid.Tty.TerminalWidget', 'Consoloid.Widget.Widget',
 
     __startPty: function()
     {
-      this.get('logger').log('debug', 'Starting pty for terminal widgte', { terminalId: this.terminalId });
+      this.get('logger').log('debug', 'Starting pty for terminal widget', { terminalId: this.terminalId });
       this.get('async_rpc_handler_client').getSocket()
         .on(this.terminalId, this.receiveDataFromPty.bind(this));
       this.terminal.on('data', this.__sendDataToPty.bind(this));

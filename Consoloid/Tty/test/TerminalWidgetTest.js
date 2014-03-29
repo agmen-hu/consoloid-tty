@@ -5,12 +5,6 @@ require('../TerminalWidget');
 
 describeUnitTest('Consoloid.Tty.TerminalWidget', function() {
   describe('#__constructor()', function() {
-    it('should require pty to be injected', function() {
-      (function() {
-        env.create('Consoloid.Tty.TerminalWidget', {});
-      }).should.throwError('pty must be injected');
-    });
-
     it('should load term.js when not loaded', function() {
       sinon.stub(env.get('resource_loader'), 'getJs', function() {
         window.Terminal = global.Terminal = function() {};
@@ -85,6 +79,13 @@ describeUnitTest('Consoloid.Tty.TerminalWidget', function() {
     afterEach(function() {
       delete window.Terminal;
       delete global.Terminal;
+    });
+
+    it('should throw error when pty is not set', function() {
+      terminal = env.create('Consoloid.Tty.TerminalWidget', {});
+      (function() {
+        terminal.render();
+      }).should.throwError('pty must be set before rendering widget');
     });
 
     it('should tell to the pty what signal to emit on data output', function() {
